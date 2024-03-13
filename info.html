@@ -10,17 +10,16 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="new_styles.css">
     <link rel="stylesheet" href="info.css">
 </head>
 
 <body>
-
     <nav>
         <div class="navbar">
             <h1 class="header" id="header" style="cursor: pointer;">Dashboard</h1>
             <button id="logoutButton">
-                
                 <svg enable-background="new 0 0 24 24" height="21" viewBox="0 0 24 24" width="21"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -34,38 +33,41 @@
     <main>
         <div>
             <h1 class="userIdHeader">Spot coins for userId</h1>
-            <table id="coinTable">
-                <thead>
-                    <tr>
-                        <th>Coin</th>
-                        <th>Quantity</th>
-                        <th>Rate (USD)</th>
-                        <th>Total USD Value</th>
-                        <th>Sell Assets</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Table rows will be populated here via JavaScript -->
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table id="coinTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Coin</th>
+                            <th>Quantity</th>
+                            <th>Rate (USD)</th>
+                            <th>Total USD Value</th>
+                            <th>Sell Asset</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div>
             <h1 class="userIdHeader">Futures</h1>
-            <table id="marginTable">
-                <thead>
-                    <tr>
-                        <th>Margin Coin</th>
-                        <th>Symbol</th>
-                        <th>Leverage</th>
-                        <th>Margin Size</th>
-                        <th>Hold Side</th>
-                        <th>Total</th>
-                        <th>Close Trade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table id="marginTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Margin Coin</th>
+                            <th>Symbol</th>
+                            <th>Leverage</th>
+                            <th>Margin Size</th>
+                            <th>Hold Side</th>
+                            <th>Total</th>
+                            <th>Close Trade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- Modal Popup Structure For Spot Coins table-->
@@ -80,8 +82,8 @@
                     <p id="modalQuantity"></p>
                     <p id="modalRate"></p>
                     <p id="modalTotalValue"></p>
-                
-                <button class="confirmSale">Confirm Sale</button>
+
+                    <!-- <button class="confirmSale">Confirm Sale</button> -->
                 </div>
             </div>
         </div>
@@ -91,21 +93,21 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                
+
                 <div class="modal-replace">
                     <h2>Confirm Trade Closure</h2>
-                
-                        <p id="modalMarginCoin"></p>
-                        <p id="modalSymbol"></p>
-                        <p id="modalLeverage"></p>
-                        <p id="modalMarginSize"></p>
-                        <p id="modalHoldSide"></p>
-                        <p id="modalTotal"></p>
-            
-                <button class="confirmCloseTrade">Confirm Close Trade</button>
 
-            </div>
+                    <p id="modalMarginCoin"></p>
+                    <p id="modalSymbol"></p>
+                    <p id="modalLeverage"></p>
+                    <p id="modalMarginSize"></p>
+                    <p id="modalHoldSide"></p>
+                    <p id="modalTotal"></p>
+
+                    <!-- <button class="confirmCloseTrade">Confirm Close Trade</button> -->
+
                 </div>
+            </div>
         </div>
 
     </main>

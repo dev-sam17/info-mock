@@ -10,10 +10,11 @@ if (!storedToken) {
 
 const format = (x) => parseFloat(x).toFixed(2)
 
+// const EDIT_SVG = `<svg height="8" viewBox="0 0 8 8" width="8" xmlns="http://www.w3.org/2000/svg"><path d="m6 0-1 1 2 2 1-1zm-2 2-4 4v2h2l4-4z"/></svg>`
+// const VIEW_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" id="view"><path fill="none" d="M0 0h48v48H0z"></path><path d="M4 42h38v-6H4v6zm36-26H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h34c1.1 0 2-.9 2-2V18c0-1.1-.9-2-2-2zM4 6v6h38V6H4z"></path></svg>`
 const EDIT_SVG = `<span class="material-symbols-outlined">
 edit
 </span>`
-const VIEW_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" id="view"><path fill="none" d="M0 0h48v48H0z"></path><path d="M4 42h38v-6H4v6zm36-26H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h34c1.1 0 2-.9 2-2V18c0-1.1-.9-2-2-2zM4 6v6h38V6H4z"></path></svg>`
 const VIEW_2 = `<span class="material-symbols-outlined">
 Info
 </span>`
@@ -27,7 +28,6 @@ function reqData() {
 }
 
 function updateData() {
-	// console.log('UPDATE DATA')
 	const cardContainer = document.getElementById('cardContainer')
 	const existingCards = cardContainer.querySelectorAll('.card')
 
@@ -74,7 +74,7 @@ function updateData() {
 			const userId = card.querySelector('h2').textContent
 			const updatedData = accountDataById[userId]
 
-			if (updatedData) {
+			if (updatedData && parseFloat(updatedData.total) > 100) {
 				updateCard(card, updatedData, apiResponse.role) // Update existing card
 			} else {
 				cardContainer.removeChild(card) // Remove stale card
@@ -88,7 +88,8 @@ function updateData() {
 				if (
 					!existingUserIds.some(
 						(user) => user === accountData.user_id
-					)
+					) &&
+					parseFloat(accountData.total) > 100
 				) {
 					// console.log('CREATE NEW CARD', accountData.user_id)
 					const newCard = createCard(accountData, apiResponse.role)
@@ -111,7 +112,7 @@ function updateCard(card, accountData, role) {
 
 	if (card.querySelector('.view-button')) {
 		card.querySelector('.view-button').addEventListener('click', () => {
-			window.location.href = `info.html?userId=${accountData.user_id}`
+			window.location.href = `info.html?userId=${accountData.user_id}&name=${accountData.nickname}`
 		})
 	}
 }
@@ -131,7 +132,7 @@ function createCard(accountData, role) {
 
 	if (card.querySelector('.view-button')) {
 		card.querySelector('.view-button').addEventListener('click', () => {
-			window.location.href = `info.html?userId=${accountData.user_id}`
+			window.location.href = `info.html?userId=${accountData.user_id}&name=${accountData.nickname}`
 		})
 	}
 
@@ -229,58 +230,3 @@ async function postData(url = '', data = {}) {
 
 	return response.json() // parses JSON response into native JavaScript objects
 }
-
-// mock postData function 
-// async function postData(url = '', data = {}) {
-// 	const mockResponse = {
-// 		"role": "ADMIN",
-// 		"records": [
-// 		  {
-// 			"user_id": "1192709432",
-// 			"total": "0.0000007764358900000001",
-// 			"spot": "0.0000007694358900000001",
-// 			"spot_coins": "",
-// 			"futures": "0.000000007",
-// 			"min": "5",
-// 			"nickname": "Test Account",
-// 			"visible": 0,
-// 			"type": "bitget",
-// 			"has_api_key": true,
-// 			"created_at": "2024-03-05T14:50:47.000Z",
-// 			"modified_at": "2024-03-12T07:50:58.000Z"
-// 		  },
-// 		  {
-// 			"user_id": "1411153198",
-// 			"total": "200",
-// 			"spot": "100",
-// 			"spot_coins": "QRDO,USDT,QNT",
-// 			"futures": "100",
-// 			"min": "22000",
-// 			"nickname": "CryptoDevious ",
-// 			"visible": 1,
-// 			"type": "bitget",
-// 			"has_api_key": true,
-// 			"created_at": "2024-03-05T14:50:47.000Z",
-// 			"modified_at": "2024-03-12T07:50:58.000Z"
-// 		  }
-// 		],
-// 		"rates": [
-// 		  {
-// 			"id": 1,
-// 			"currency": "BTC",
-// 			"value": "72026.81",
-// 			"created_at": "2024-03-05T18:23:38.000Z",
-// 			"modified_at": "2024-03-12T07:50:58.000Z"
-// 		  },
-// 		  {
-// 			"id": 2,
-// 			"currency": "ETH",
-// 			"value": "4020.17",
-// 			"created_at": "2024-03-05T18:23:38.000Z",
-// 			"modified_at": "2024-03-12T07:50:58.000Z"
-// 		  }
-// 		]
-// 	  }
-
-// 	  return mockResponse;
-// }

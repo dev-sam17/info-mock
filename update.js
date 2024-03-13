@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:3000'
+// const BASE_URL = 'http://localhost:3000'
+const BASE_URL = 'https://trading-stats.com'
 
 const storedToken = localStorage.getItem('token')
 // console.log('storedToken', storedToken)
