@@ -1,0 +1,174 @@
+body {
+	/* font-family: 'Arial', sans-serif; */
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+	font-style: normal;
+
+	background-color: #e7efff;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #5c6bc0;
+	color: white;
+	padding: 1rem;
+}
+
+#logoutButton {
+	/* padding: 0.5rem 1rem; */
+	padding: 0.4rem 0.6rem;
+	background-color: #dc336c;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: auto;
+	/* This pushes the button to the right */
+}
+
+#logoutButton:hover {
+	background-color: #9c0f41;
+}
+
+main {
+	flex: 1;
+	padding: 2rem;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.card {
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 400px;
+	margin: 20px;
+	font-family: Arial, sans-serif;
+}
+
+.card h2 {
+	color: #333;
+	margin-top: 0;
+}
+
+.card .balance {
+	text-align: right;
+	font-size: 25px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+}
+
+.card .details {
+	text-align: right;
+	color: #808080;
+            font-size: 15px;
+            margin-top: 5px;
+}
+
+.button-container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+button {
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.edit-button {
+	background-color:white;
+	color: black;
+}
+
+.view-button {
+	background-color: green;
+	color: white;
+}
+
+.card:hover {
+	box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Add to the existing styles.css */
+.edit-container {
+	background-color: #fff;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	margin: 2rem auto;
+	max-width: 500px;
+	width: 100%;
+}
+
+.edit-container form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.edit-container input {
+	/* .edit-container input[type='number'] { */
+	font-size: 1.2em;
+	padding: 10px;
+	margin: 20px 0;
+	width: 100%;
+	max-width: 300px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.edit-container button {
+	padding: 10px 20px;
+	font-size: 1em;
+	color: white;
+	background-color: #5c6bc0;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.edit-container button:hover {
+	background-color: #3f51b5;
+}
+
+label {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+	.card {
+		width: 75%;
+	}
+}
+
+.header {
+	/* text-align: center; */
+	/* margin: 0 auto; */
+	flex: 1;
+	/* This allows the header to grow and shrink within the flex container */
+	text-align: center;
+	/* This centers the text horizontally */
+}
+
+
+#formHeader {
+	margin: auto;
+	padding: auto;
+}
+
+.pointer {
+	cursor: pointer;
+}
