@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Limit</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav>
+    <div class="navbar">
+      <h1 id="home" style="cursor: pointer;">Dashboard</h1>
+      <button id="logoutButton">Logout</button>
+    </div>
+  </nav>
+  <main>
+    <div class="edit-container">
+      <form id="updateForm">
+        <label id="formHeader">Update Info</label>
+        <div style="margin-bottom: 45px;"></div>
+
+        <br></br>
+
+        <!-- <label for="nameInput">New Limit:</label> -->
+        <input id="nameInput" placeholder="Enter display name">
+
+        <!-- <label for="limitInput">New Limit:</label> -->
+        <input type="number" id="minInput" placeholder="Enter minimum">
+        <input id="keyInput" placeholder="API KEY">
+        <input id="secretInput" placeholder="API SECRET">
+
+        <!-- <p>Select to Hide</p> -->
+        <input class="pointer" type="radio" id="optionVisible" name="displayOption" value="VISIBLE">
+        <label class="pointer" for="optionVisible">Visible</label><br>
+
+        <input class="pointer" type="radio" id="optionHidden" name="displayOption" value="HIDDEN">
+        <label class="pointer" for="optionHidden">Hidden</label><br>
+
+        <div style="margin-bottom: 45px;"></div>
+
+        <button type="submit" id="submitLimit">Submit</button>
+        <div style="margin-bottom: 15px;"></div>
+
+      </form>
+    </div>
+  </main>
+
+  <script src="update.js"></script>
+</body>
+
+</html>
